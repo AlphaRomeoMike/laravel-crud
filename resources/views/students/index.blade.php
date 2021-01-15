@@ -29,10 +29,11 @@
                             <tr>
                                 <td>{{$row['first_name']}}</td>
                                 <td>{{$row['last_name']}}</td>
-                                <td><div class="form-group" style="display: inline"><a href="{{action('StudentController@edit', $row['id'])}}" class="btn btn-outline-primary">Edit</a>
-                                <form action="" method="POST" class="delete_form" action="{{action('StudentController@destroy', $row['id'])}}">{{csrf_field()}}
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                <td><div class="form-group">
+                                <form method="POST" class="delete_form" 
+                                action="{{action('StudentController@destroy', $row['id'])}}">{{csrf_field()}}
+                                    <input type="hidden" name="GET" value="DELETE">
+                                    <button type="submit" class="btn btn-outline-danger">Delete</button><span> </span><a href="{{action('StudentController@edit', $row['id'])}}" class="btn btn-outline-primary">Edit</a>
                                 </form></div></td>
                             </tr>
                         @endforeach
@@ -48,7 +49,7 @@
                     } else {
                         return false;
                     }
-                })
-            })
+                });
+            });
         </script>
 @endsection
