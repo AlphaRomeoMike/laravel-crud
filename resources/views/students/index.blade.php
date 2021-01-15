@@ -31,7 +31,9 @@
                                 <td>{{$row['last_name']}}</td>
                                 <td><div class="form-group">
                                 <form method="POST" class="delete_form" 
-                                action="{{action('StudentController@destroy', $row['id'])}}">{{csrf_field()}}
+                                action="{{action('StudentController@destroy', $row['id'])}}">
+                                @csrf
+                                @method('DELETE')
                                     <input type="hidden" name="GET" value="DELETE">
                                     <button type="submit" class="btn btn-outline-danger">Delete</button><span> </span><a href="{{action('StudentController@edit', $row['id'])}}" class="btn btn-outline-primary">Edit</a>
                                 </form></div></td>
